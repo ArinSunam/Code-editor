@@ -1,4 +1,4 @@
-
+import React from 'react';
 import Navbar from './components/Navbar'
 import Editor from './components/Editor'
 import Result from './components/Result'
@@ -6,9 +6,14 @@ import Result from './components/Result'
 function App() {
 
 
+
+
+
+
+
   return (
     <>
-      <div className=''>
+      <div>
 
         <Navbar />
         <Editor />
