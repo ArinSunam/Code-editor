@@ -3,32 +3,26 @@ import { html } from '@codemirror/lang-html'
 import CodeMirror from '@uiw/react-codemirror'
 import { css } from '@codemirror/lang-css'
 import { javascript } from '@codemirror/lang-javascript'
+import { useCodeEditor } from '../utils/codeUtils'
+
+
 
 const Editor = () => {
 
-  const [htmlEdit, setHtmlEdit] = useState('')
-  const [cssEdit, setCssEdit] = useState('');
-  const [jsEdit, setJsEdit] = useState('');
 
-  //OnChange Handlers
+  const {
+    htmlEdit,
+    cssEdit,
+    jsEdit,
+    onChangeHtml,
+    onChangeCss,
+    onChangeJs,
 
-  const onChangeHtml = useCallback((value) => {
-    setHtmlEdit(value);
-  }, []);
-  const onChangeCss = useCallback((value) => {
-    setCssEdit(value);
-  }, []);
-  const onChangeJs = useCallback((value) => {
-    setJsEdit(value);
-  }, []);
+  } = useCodeEditor();
 
-  //Html Doc
+  console.log('htmlEdit:', htmlEdit)
 
-  const SrcCode = () => (`
-  <body>${htmlEdit}</body>
-  <style>${cssEdit}</style>
-  <script>${jsEdit}</script>
-  `);
+
 
   return (
     <div className='p-2 grid grid-cols-1 lg:grid-cols-3 gap-2'>
@@ -74,4 +68,6 @@ const Editor = () => {
   )
 }
 
-export default Editor
+export default Editor;
+
+

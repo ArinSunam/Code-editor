@@ -2,10 +2,14 @@ import React from 'react';
 import Navbar from './components/Navbar'
 import Editor from './components/Editor'
 import Result from './components/Result'
+import { useCodeEditor } from './utils/codeUtils';
 
 function App() {
 
+  const { getSrcCode } = useCodeEditor();
+  const srcCode = getSrcCode();
 
+  console.log('srcCodeMain', srcCode)
 
 
 
@@ -17,7 +21,7 @@ function App() {
 
         <Navbar />
         <Editor />
-        <Result />
+        <Result srcCode={srcCode} />
 
       </div>
 
